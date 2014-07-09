@@ -1,0 +1,43 @@
+[mysqld]
+datadir                         = /mysql
+socket                          = /mysql/mysql.sock
+user                            = mysql
+symbolic-links                  = 0
+sysdate_is_now                  = 1
+open_files_limit                = 65535
+innodb_flush_method             = O_DIRECT
+innodb_log_file_size            = 512M
+innodb_flush_log_at_trx_commit  = 1
+innodb_buffer_pool_size         = 5G
+sync_binlog                     = 1
+server-id                       = <%= node[:soweb][:serverid] %>
+innodb_file_per_table
+max_allowed_packet              = 100M
+innodb_locks_unsafe_for_binlog  = 1
+innodb_autoinc_lock_mode        = 2
+log-bin                         = mysql-bin
+binlog-format                   = MIXED
+max_connections                 = 900
+max_user_connections            = 900
+table_open_cache                = 1000
+secure-auth                     = 0
+report-host                     = <%= node[:hostname] %>.lasvegas.website.lan
+
+
+relay-log                       = <%= node[:hostname] %>-relay-bin
+
+master-info-repository          = table
+relay-log-info-repository       = table
+
+slave-skip-errors = 1062
+
+[mysqld_safe]
+log-error                       = /mysql/percona.log
+pid-file                        = /mysql/mysqld.pid
+
+[client]
+socket                          = /mysql/mysql.sock
+secure-auth                     = 0
+
+ssl-cert=/etc/mysql/newcerts/client-cert.pem
+ssl-key=/etc/mysql/newcerts/client-key.pem

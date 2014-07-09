@@ -1,0 +1,64 @@
+I, [2014-01-29T14:03:19.258036 #7630]  INFO -- Kitchen: -----> Starting Kitchen (v1.1.1)
+I, [2014-01-29T14:03:19.753406 #7630]  INFO -- Kitchen: -----> Creating <default-centos-64>...
+E, [2014-01-29T14:03:20.732561 #7630] ERROR -- Kitchen: ------Exception-------
+E, [2014-01-29T14:03:20.732857 #7630] ERROR -- Kitchen: Class: Kitchen::ActionFailed
+E, [2014-01-29T14:03:20.732910 #7630] ERROR -- Kitchen: Message: Failed to complete #create action: [Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: VirtualBox is complaining that the kernel module is not loaded. Please
+run `VBoxManage --version` or open the VirtualBox GUI to see the error
+message which should contain instructions on how to fix this error.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1]
+E, [2014-01-29T14:03:20.732963 #7630] ERROR -- Kitchen: ---Nested Exception---
+E, [2014-01-29T14:03:20.733005 #7630] ERROR -- Kitchen: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2014-01-29T14:03:20.733046 #7630] ERROR -- Kitchen: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: VirtualBox is complaining that the kernel module is not loaded. Please
+run `VBoxManage --version` or open the VirtualBox GUI to see the error
+message which should contain instructions on how to fix this error.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1
+E, [2014-01-29T14:03:20.733086 #7630] ERROR -- Kitchen: ------Backtrace-------
+E, [2014-01-29T14:03:20.733126 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/shell_out.rb:70:in `rescue in run_command'
+E, [2014-01-29T14:03:20.733166 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2014-01-29T14:03:20.733207 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/driver/base.rb:158:in `run_command'
+E, [2014-01-29T14:03:20.733247 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/kitchen-vagrant-0.14.0/lib/kitchen/driver/vagrant.rb:123:in `run'
+E, [2014-01-29T14:03:20.733288 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/kitchen-vagrant-0.14.0/lib/kitchen/driver/vagrant.rb:68:in `create'
+E, [2014-01-29T14:03:20.733328 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `public_send'
+E, [2014-01-29T14:03:20.733398 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `block in perform_action'
+E, [2014-01-29T14:03:20.733443 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:305:in `call'
+E, [2014-01-29T14:03:20.733484 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:305:in `block in synchronize_or_call'
+E, [2014-01-29T14:03:20.733524 #7630] ERROR -- Kitchen: <internal:prelude>:10:in `synchronize'
+E, [2014-01-29T14:03:20.733565 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:303:in `synchronize_or_call'
+E, [2014-01-29T14:03:20.733606 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:283:in `block in action'
+E, [2014-01-29T14:03:20.733646 #7630] ERROR -- Kitchen: /usr/local/rvm/rubies/ruby-1.9.3-p484/lib/ruby/1.9.1/benchmark.rb:280:in `measure'
+E, [2014-01-29T14:03:20.733711 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:282:in `action'
+E, [2014-01-29T14:03:20.733754 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `perform_action'
+E, [2014-01-29T14:03:20.733807 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:252:in `create_action'
+E, [2014-01-29T14:03:20.733851 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:246:in `block in transition_to'
+E, [2014-01-29T14:03:20.733893 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:245:in `each'
+E, [2014-01-29T14:03:20.733934 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:245:in `transition_to'
+E, [2014-01-29T14:03:20.733974 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:108:in `create'
+E, [2014-01-29T14:03:20.734018 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `public_send'
+E, [2014-01-29T14:03:20.734059 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `block in run_serial'
+E, [2014-01-29T14:03:20.734101 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `map'
+E, [2014-01-29T14:03:20.734142 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `run_serial'
+E, [2014-01-29T14:03:20.734183 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:308:in `block in exec_action'
+E, [2014-01-29T14:03:20.734224 #7630] ERROR -- Kitchen: /usr/local/rvm/rubies/ruby-1.9.3-p484/lib/ruby/1.9.1/benchmark.rb:280:in `measure'
+E, [2014-01-29T14:03:20.734266 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:305:in `exec_action'
+E, [2014-01-29T14:03:20.734307 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:108:in `block (2 levels) in <class:CLI>'
+E, [2014-01-29T14:03:20.734348 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+E, [2014-01-29T14:03:20.734389 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+E, [2014-01-29T14:03:20.734445 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:288:in `invoke_task'
+E, [2014-01-29T14:03:20.734507 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+E, [2014-01-29T14:03:20.734566 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+E, [2014-01-29T14:03:20.734625 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/bin/kitchen:13:in `block in <top (required)>'
+E, [2014-01-29T14:03:20.734704 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/errors.rb:81:in `with_friendly_errors'
+E, [2014-01-29T14:03:20.734769 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/bin/kitchen:13:in `<top (required)>'
+E, [2014-01-29T14:03:20.734829 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/kitchen:23:in `load'
+E, [2014-01-29T14:03:20.734889 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/kitchen:23:in `<main>'
+E, [2014-01-29T14:03:20.734947 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/ruby_executable_hooks:15:in `eval'
+E, [2014-01-29T14:03:20.735006 #7630] ERROR -- Kitchen: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/ruby_executable_hooks:15:in `<main>'
+E, [2014-01-29T14:03:20.735065 #7630] ERROR -- Kitchen: ----------------------

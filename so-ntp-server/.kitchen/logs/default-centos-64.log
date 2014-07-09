@@ -1,0 +1,64 @@
+I, [2014-01-29T14:03:19.753578 #7630]  INFO -- default-centos-64: -----> Creating <default-centos-64>...
+E, [2014-01-29T14:03:20.699369 #7630] ERROR -- default-centos-64: Create failed on instance <default-centos-64>.
+E, [2014-01-29T14:03:20.699578 #7630] ERROR -- default-centos-64: ------Exception-------
+E, [2014-01-29T14:03:20.699632 #7630] ERROR -- default-centos-64: Class: Kitchen::ShellOut::ShellCommandFailed
+E, [2014-01-29T14:03:20.699690 #7630] ERROR -- default-centos-64: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: VirtualBox is complaining that the kernel module is not loaded. Please
+run `VBoxManage --version` or open the VirtualBox GUI to see the error
+message which should contain instructions on how to fix this error.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1
+E, [2014-01-29T14:03:20.699754 #7630] ERROR -- default-centos-64: ---Nested Exception---
+E, [2014-01-29T14:03:20.699804 #7630] ERROR -- default-centos-64: Class: Mixlib::ShellOut::ShellCommandFailed
+E, [2014-01-29T14:03:20.699853 #7630] ERROR -- default-centos-64: Message: Expected process to exit with [0], but received '1'
+---- Begin output of vagrant up --no-provision --provider=virtualbox ----
+STDOUT: 
+STDERR: VirtualBox is complaining that the kernel module is not loaded. Please
+run `VBoxManage --version` or open the VirtualBox GUI to see the error
+message which should contain instructions on how to fix this error.
+---- End output of vagrant up --no-provision --provider=virtualbox ----
+Ran vagrant up --no-provision --provider=virtualbox returned 1
+E, [2014-01-29T14:03:20.699901 #7630] ERROR -- default-centos-64: ------Backtrace-------
+E, [2014-01-29T14:03:20.699978 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/shell_out.rb:70:in `rescue in run_command'
+E, [2014-01-29T14:03:20.700028 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/shell_out.rb:59:in `run_command'
+E, [2014-01-29T14:03:20.700077 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/driver/base.rb:158:in `run_command'
+E, [2014-01-29T14:03:20.700132 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/kitchen-vagrant-0.14.0/lib/kitchen/driver/vagrant.rb:123:in `run'
+E, [2014-01-29T14:03:20.700188 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/kitchen-vagrant-0.14.0/lib/kitchen/driver/vagrant.rb:68:in `create'
+E, [2014-01-29T14:03:20.700236 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `public_send'
+E, [2014-01-29T14:03:20.700292 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `block in perform_action'
+E, [2014-01-29T14:03:20.700346 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:305:in `call'
+E, [2014-01-29T14:03:20.700385 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:305:in `block in synchronize_or_call'
+E, [2014-01-29T14:03:20.700423 #7630] ERROR -- default-centos-64: <internal:prelude>:10:in `synchronize'
+E, [2014-01-29T14:03:20.700471 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:303:in `synchronize_or_call'
+E, [2014-01-29T14:03:20.700519 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:283:in `block in action'
+E, [2014-01-29T14:03:20.700567 #7630] ERROR -- default-centos-64: /usr/local/rvm/rubies/ruby-1.9.3-p484/lib/ruby/1.9.1/benchmark.rb:280:in `measure'
+E, [2014-01-29T14:03:20.700606 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:282:in `action'
+E, [2014-01-29T14:03:20.700674 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:273:in `perform_action'
+E, [2014-01-29T14:03:20.700732 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:252:in `create_action'
+E, [2014-01-29T14:03:20.700787 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:246:in `block in transition_to'
+E, [2014-01-29T14:03:20.700836 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:245:in `each'
+E, [2014-01-29T14:03:20.700897 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:245:in `transition_to'
+E, [2014-01-29T14:03:20.700970 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/instance.rb:108:in `create'
+E, [2014-01-29T14:03:20.701037 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `public_send'
+E, [2014-01-29T14:03:20.701100 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `block in run_serial'
+E, [2014-01-29T14:03:20.701155 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `map'
+E, [2014-01-29T14:03:20.701210 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:314:in `run_serial'
+E, [2014-01-29T14:03:20.701259 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:308:in `block in exec_action'
+E, [2014-01-29T14:03:20.701318 #7630] ERROR -- default-centos-64: /usr/local/rvm/rubies/ruby-1.9.3-p484/lib/ruby/1.9.1/benchmark.rb:280:in `measure'
+E, [2014-01-29T14:03:20.701374 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:305:in `exec_action'
+E, [2014-01-29T14:03:20.701432 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:108:in `block (2 levels) in <class:CLI>'
+E, [2014-01-29T14:03:20.701482 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+E, [2014-01-29T14:03:20.701538 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+E, [2014-01-29T14:03:20.701592 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:288:in `invoke_task'
+E, [2014-01-29T14:03:20.701630 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+E, [2014-01-29T14:03:20.701677 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+E, [2014-01-29T14:03:20.701716 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/bin/kitchen:13:in `block in <top (required)>'
+E, [2014-01-29T14:03:20.701754 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/lib/kitchen/errors.rb:81:in `with_friendly_errors'
+E, [2014-01-29T14:03:20.701802 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/gems/test-kitchen-1.1.1/bin/kitchen:13:in `<top (required)>'
+E, [2014-01-29T14:03:20.701851 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/kitchen:23:in `load'
+E, [2014-01-29T14:03:20.701910 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/kitchen:23:in `<main>'
+E, [2014-01-29T14:03:20.701983 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/ruby_executable_hooks:15:in `eval'
+E, [2014-01-29T14:03:20.702042 #7630] ERROR -- default-centos-64: /usr/local/rvm/gems/ruby-1.9.3-p484/bin/ruby_executable_hooks:15:in `<main>'
+E, [2014-01-29T14:03:20.702099 #7630] ERROR -- default-centos-64: ----------------------

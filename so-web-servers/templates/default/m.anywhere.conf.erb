@@ -1,0 +1,10 @@
+NameVirtualHost <%= @vhost_ipaddress %>:<%= node[:soweb][:port] %>
+<VirtualHost <%= @vhost_ipaddress %>:<%= node[:soweb][:port] %>>
+    servername m.website.com
+    serveralias m.*.com
+    serveralias m.*.net
+    RewriteEngine On
+    RewriteOptions Inherit
+    DocumentRoot /home/dealreso/public_html/avalanchemobile.website.com/
+</VirtualHost>
+

@@ -1,0 +1,21 @@
+tinker panic 0
+statsdir /var/log/ntpstats/
+leapfile /etc/ntp.leapseconds
+driftfile /var/lib/ntp/drift
+
+server 10.87.42.4 iburst
+server 0.us.pool.ntp.org
+server 1.us.pool.ntp.org
+server 2.us.pool.ntp.org
+server 3.us.pool.ntp.org
+server 127.127.1.0
+fudge 127.127.1.0 stratum 10
+
+restrict 67.203.70.0 mask 255.255.254.0 nomodify notrap
+restrict default kod notrap nomodify nopeer noquery
+restrict 127.0.0.1 nomodify
+restrict -6 default kod notrap nomodify nopeer noquery
+restrict -6 ::1 nomodify
+restrict default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1
+

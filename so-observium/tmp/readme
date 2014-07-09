@@ -1,0 +1,1 @@
+ssh staging "cd /; tar zxvf host_deploy.tar.gz; cd /root; ./host_setup.sh staging.website.com;"

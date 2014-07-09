@@ -1,0 +1,54 @@
+## This is a sample configuration file. See the nxlog reference manual about the
+## configuration options. It should be installed locally under
+## /usr/share/doc/nxlog-ce/ and is also available online at
+## http://nxlog.org/nxlog-docs/en/nxlog-reference-manual.html
+
+########################################
+# Global directives                    #
+########################################
+User root
+Group root
+
+LogFile /var/log/nxlog/nxlog.log
+LogLevel INFO
+
+########################################
+# Modules                              #
+########################################
+
+<Extension gelf>
+    Module      xm_gelf
+</Extension>
+
+<Input access_log>
+        Module  im_file
+        File    "/var/log/httpd/access_log"
+        Exec $Hostname = '<%= node[:hostname] %>';
+        SavePos TRUE
+</Input>
+
+<Input error_log>
+        Module  im_file
+        File    "/var/log/httpd/error_log"
+        Exec $Hostname = '<%= node[:hostname] %>';
+        SavePos TRUE
+</Input>
+
+<Input php_log>
+        Module  im_file
+        File    "/var/log/httpd/php_error.log"
+        Exec $Hostname = '<%= node[:hostname] %>';
+        SavePos TRUE
+</Input>
+
+<Output gelf_out>
+    Module      om_udp
+    Host        graylog2
+    Port        12201
+    OutputType  GELF
+</Output>
+
+<Route access>
+       Path access_log, error_log, php_log => gelf_out
+</Route>
+

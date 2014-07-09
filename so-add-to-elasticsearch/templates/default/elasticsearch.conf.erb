@@ -1,0 +1,7 @@
+$template customSchema,"{\"message\":\"%msg:::json%\",\"host\":\"%HOSTNAME:::json%\",\"severity\":\"%syslogseverity%\",\"@timestamp\":\"%timestamp:::date-rfc3339%\",\"tag\":\"%syslogtag:::json%\"}"
+
+$template logstash-,"logstash-%timereported:1:10:date-rfc3339%"
+
+*.*     action(type="omelasticsearch" template="customSchema" searchIndex="logstash-" dynSearchIndex="on" server="elasticsearch1.lasvegas.website.lan")
+
+
