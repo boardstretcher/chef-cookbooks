@@ -1,7 +1,7 @@
 # chef server installation
 
 # prepare box
-yum install -y vim epel-release
+yum install -y vim epel-release wget
 
 # download and verify
 wget https://packages.chef.io/files/stable/chef-server/12.11.1/el/7/chef-server-core-12.11.1-1.el7.x86_64.rpm
@@ -9,7 +9,7 @@ curl https://downloads.chef.io/chef-server | grep -o 'c75.*379d'
 sha256sum chef-server-core-12.11.1-1.el7.x86_64.rpm 
 
 # install and configure
-yum install chef-server-core-12.11.1-1.el7.x86_64.rpm 
+yum install -y chef-server-core-12.11.1-1.el7.x86_64.rpm 
 chef-server-ctl reconfigure
 
 # double check services are running
