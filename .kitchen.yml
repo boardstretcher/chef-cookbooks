@@ -1,0 +1,42 @@
+---
+driver:
+  name: docker
+  #windows settings
+  binary: docker.exe
+  socket: "npipe:////./pipe/docker_engine"
+  
+provisioner:
+  name: chef_solo
+  environments_path: environments
+  roles_path: roles
+  solo_rb:
+    environment: at
+
+platforms:
+  #- name: centos7.3
+  #  driver_config:
+  #    image: centos:7.3.1611
+  #    platform: centos
+  #    privileged: true
+  #    run_command: /usr/sbin/init
+  #    use_sudo: false
+  - name: centos7.4
+    driver_config:
+      image: centos:7.4.1708
+      platform: centos
+      privileged: true
+      run_command: /usr/sbin/init
+      use_sudo: false
+  #- name: centos7.5
+  #  driver_config:
+  #    image: centos:7.5.1804
+  #    platform: centos
+  #    privileged: true
+  #    run_command: /usr/sbin/init
+  #    use_sudo: false
+  
+suites:
+  - name: default
+    run_list:
+      - recipe[chef-client::default]
+    attributes:
