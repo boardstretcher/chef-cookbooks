@@ -1,0 +1,22 @@
+##################################################################
+#### ATTENTION: This file is managed by CHEF and any manual changes
+#### WILL BE OVERWRITTEN when chef-client runs next
+#####################################################################
+
+service check_mk
+{
+	type		= UNLISTED
+	port		= 6556
+	socket_type	= stream
+	protocol	= tcp
+	wait		= no
+	user		= root
+	server		= /usr/bin/check_mk_agent
+	flags		= IPv4
+
+# configure the IP address(es) of your Nagios server here:
+
+only_from      = <%= @server1 %>
+
+disable		= no
+}

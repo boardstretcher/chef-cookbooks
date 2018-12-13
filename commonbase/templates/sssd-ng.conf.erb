@@ -1,0 +1,54 @@
+##################################################################
+#### ATTENTION: This file is managed by CHEF and any manual changes
+#### WILL BE OVERWRITTEN when chef-client runs next
+#####################################################################
+
+[sssd]
+config_file_version = 2
+debug_level = 3
+reconnection_retries = 3
+sbus_timeout = 30
+services = nss, pam
+domains = <%= @sssd_domain %>
+
+[nss]
+filter_groups = root
+filter_users = root
+reconnection_retries = 3
+debug_level = 3
+override_homedir = /home/%d/%u
+default_shell = /bin/bash
+
+[pam]
+reconnection_retries = 3
+debug_level = 3
+
+# AD
+[domain/<%= @sssd_domain %>]
+debug_level = 3
+enumerate = false
+cache_credentials = true
+id_provider = ldap
+access_provider = ldap
+auth_provider = ldap
+chpass_provider = ldap
+ldap_uri = <%= @sssd_ldap_uri_primary %>, <%= @sssd_ldap_uri_secondary %>
+ldap_search_base = <%= @sssd_search_base %>
+ldap_tls_reqcert = demand
+ldap_tls_cacert = /etc/pki/tls/certs/ca-bundle.crt
+ldap_schema = rfc2307bis
+ldap_access_order = expire
+ldap_account_expire_policy = ad
+ldap_force_upper_case_realm = true
+ldap_user_object_class = user
+ldap_user_name = sAMAccountName
+ldap_user_fullname = displayName
+ldap_user_home_directory = unixHomeDirectory
+ldap_user_principal = userPrincipalName
+ldap_group_object_class = group
+ldap_group_name = sAMAccountName
+ldap_default_bind_dn = <%= @sssd_bind_username %>
+ldap_default_authtok_type = password
+ldap_default_authtok = <%= @sssd_bind_password %>
+ldap_id_mapping = True
+ldap_schema = ad

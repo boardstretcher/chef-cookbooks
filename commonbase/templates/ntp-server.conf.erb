@@ -1,0 +1,26 @@
+
+tinker panic 0
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1 
+restrict -6 ::1
+
+server 2.ca.pool.ntp.org iburst
+server 3.ca.pool.ntp.org iburst
+server 0.north-america.pool.ntp.org iburst
+server 1.north-america.pool.ntp.org iburst
+
+peer <%= @server2 %>
+peer <%= @server3 %>
+peer <%= @server4 %>
+
+driftfile /var/lib/ntp/drift
+logfile	/var/log/ntp.log
+keys /etc/ntp/keys
+logconfig =syncevents +peerevents +sysevents +allclock
+
+##################################################################
+#### ATTENTION: This file is managed by CHEF and any manual changes
+#### WILL BE OVERWRITTEN when chef-client runs next
+#####################################################################
+

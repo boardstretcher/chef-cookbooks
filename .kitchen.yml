@@ -1,7 +1,8 @@
 ---
 driver:
   name: docker
-  #windows settings
+  
+  #windows settings for visual studio code to work
   binary: docker.exe
   socket: "npipe:////./pipe/docker_engine"
   
@@ -10,7 +11,7 @@ provisioner:
   environments_path: environments
   roles_path: roles
   solo_rb:
-    environment: at
+    environment: united_states
 
 platforms:
   #- name: centos7.3

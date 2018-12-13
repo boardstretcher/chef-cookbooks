@@ -1,0 +1,43 @@
+##################################################################
+#### ATTENTION: This file is managed by CHEF and any manual changes
+#### WILL BE OVERWRITTEN when chef-client runs next
+######################################################################
+
+# For more information see /usr/share/doc/rsyslog-*/rsyslog_conf.html
+# If you experience problems, see http://www.rsyslog.com/doc/troubleshoot.html
+
+#### MODULES ####
+$ModLoad imuxsock # provides support for local system logging (e.g. via logger command)
+$ModLoad imjournal # provides access to the systemd journal
+
+#### GLOBAL DIRECTIVES ####
+$WorkDirectory /var/lib/rsyslog
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+$IncludeConfig /etc/rsyslog.d/*.conf
+$OmitLocalLogging on
+$IMJournalStateFile imjournal.state
+
+#### TLS CONFIG ####
+$DefaultNetstreamDriverCAFile /etc/pki/rsyslog/ca-cert.pem
+$DefaultNetstreamDriver gtls
+$ActionSendStreamDriverMode 1
+$ActionSendStreamDriverAuthMode anon
+
+#### CUSTOM RULES ####
+:msg,regex, ".*Error.*Data Collector.*Chef Automate" ~
+
+#### DEFAULT RULES ####
+*.info;mail.none;authpriv.none;cron.none                /var/log/messages
+authpriv.*                                              /var/log/secure
+mail.*                                                  -/var/log/maillog
+cron.*                                                  /var/log/cron
+*.emerg                                                 :omusrmsg:*
+uucp,news.crit                                          /var/log/spooler
+local7.*                                                /var/log/boot.log
+
+# ### begin forwarding rule ###
+# *.* @logging-host:514
+<% if node.environment=='united_states' -%>
+*.* @<%= @syslog_server %>:514  
+<% end -%>
+# ### end of the forwarding rule ###

@@ -1,0 +1,16 @@
+tinker panic 0
+driftfile /var/lib/ntp/drift
+restrict default nomodify notrap nopeer noquery
+restrict 127.0.0.1
+restrict ::1
+server <%= @server1 %> iburst
+server <%= @server2 %> iburst
+server <%= @server3 %> iburst
+server <%= @server4 %> iburst
+includefile /etc/ntp/crypto/pw
+keys /etc/ntp/keys
+
+##################################################################
+#### ATTENTION: This file is managed by CHEF and any manual changes
+#### WILL BE OVERWRITTEN when chef-client runs next
+#####################################################################
