@@ -1,0 +1,38 @@
+#!/groovy
+
+node() {
+    stage('Stash Cookbooks') {
+	deleteDir()
+        checkout scm
+        stash excludes: '**/.*,_vagrant/**', name: 'cookbooks'
+    }
+    stage('Chef') {
+    deleteDir()
+        unstash 'cookbooks'
+        def work_dir = pwd()
+        withCredentials([[$class: 'FileBinding', credentialsId: 'jenkins-key', variable: 'client_key']]) {
+        writeFile file: '.chef/knife.rb', text: """
+					log_level                :info
+					log_location             STDOUT
+					node_name                'jenkins-key'
+					client_key               '${client_key}'
+					validation_client_name   'validator'
+					validation_key           '/etc/opscode/validator.pem'
+					chef_server_url          'https://chef-server/organizations/myorg'
+					chef_repo_path           '${work_dir}'
+					ssl_verify_mode          :verify_none
+				"""
+		parallel sslfetch: {
+            sh 'knife ssl fetch'
+        }, cookbooks: {
+            sh 'knife upload -c .chef/knife.rb cookbooks/'
+        }, data_bags: {
+            sh 'knife upload -c .chef/knife.rb data_bags/'
+        }, environments: {
+            sh 'knife upload -c .chef/knife.rb environments/'
+        }, roles: {
+            sh 'knife upload -c .chef/knife.rb roles/'
+        }
+        } 
+    }
+}
